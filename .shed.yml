@@ -1,0 +1,7 @@
+categories: [Epigenetics]
+description: Create MethylSet objects contains only the methylated and unmethylated
+  signals
+homepage_url: https://github.com/kpbioteam/minfi_mset
+name: minfi_mset
+owner: kpbioteam
+remote_repository_url: https://github.com/kpbioteam/minfi_mset
