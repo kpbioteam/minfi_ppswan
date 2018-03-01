@@ -1,14 +1,15 @@
-<tool id="minfi_mset" name="minfi_mset" version="0.1.0">
-    <description>Create objects contains CpGs signals</description>
+<tool id="minfi_ppswan" name="minfi_ppswan" version="0.1.0">
+    <description>Perform Subset-quantile within array normalization (SWAN)</description>
     <requirements>
         <requirement type="package" version="1.24.0">bioconductor-minfi</requirement>
         <requirement type="package" version="0.4.0">bioconductor-illuminahumanmethylation450kmanifest</requirement>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        Rscript ${__tool_directory__}/minfi_mset.R "$input1" "$output1"
+        Rscript ${__tool_directory__}/minfi_ppswan.R "$input1" "$input2" "$output1"
     ]]></command>
     <inputs>
         <param type="data" name="input1" format="rdata" />
+        <param type="data" name="input2" format="rdata" />
     </inputs>
     <outputs>
         <data name="output1" format="rdata" />
@@ -16,11 +17,12 @@
     <tests>
         <test>
             <param name="input1" value="RGSet.rdata"/>
-            <output name="output1" file="MSet.rdata"/>
+            <param name="input2" value="MSet.rdata"/>
+            <output name="output1" file="swan.rdata"/>
         </test>
     </tests>
     <help><![CDATA[
-        Create MethylSet objects contains only the methylated and unmethylated signals
+        The input of SWAN is a MethylSet, and the function returns a MethylSet as well. If an RGChannelSet is provided instead, the function will first call preprocessRaw on the RGChannelSet, and then apply the SWAN normalization.
     ]]></help>
     <citations>
         <citation type="doi">10.1093/bioinformatics/btu049</citation>
