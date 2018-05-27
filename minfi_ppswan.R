@@ -10,9 +10,8 @@ input = args[1]
 output = args[2]
 
 RGSet <- get(load(input))
-MSet <- preprocessRaw(RGSet)
 
-swan <-  preprocessSWAN(RGSet, mSet = MSet) 
+swan <-  preprocessSWAN(RGSet, mSet = NULL, verbose = FALSE) 
 
 save(swan, file = output)
 
