@@ -8,10 +8,10 @@
         Rscript ${__tool_directory__}/minfi_ppswan.R "$input1" "$output1"
     ]]></command>
     <inputs>
-        <param type="data" name="input1" format="rdata" label="RGChannelSet" />
+        <param type="data" name="input1" format="rdata" label="RGChannelSet"/>
     </inputs>
     <outputs>
-        <data name="output1" format="rdata" />
+        <data name="output1" format="rdata" label="MethylSet" />
     </outputs>
     <tests>
         <test>
@@ -20,9 +20,8 @@
         </test>
     </tests>
     <help><![CDATA[
-        The input of SWAN is a MethylSet, and the function returns a MethylSet as well. If an RGChannelSet is provided instead, the function will first call preprocessRaw on the RGChannelSet, and then apply the SWAN normalization.
-    ]]></help>
-    <citations>
+        Perform Subset-quantile within array normalization (SWAN) on RGChannelSet]]></help>
+<citations>
         <citation type="doi">10.1093/bioinformatics/btu049</citation>
     </citations>
 </tool>
